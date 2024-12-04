@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id"> <!-- Deklarasi dokumen HTML menggunakan bahasa Indonesia -->
+<head>
+    <title>Kalkulator BMI</title> <!-- Judul halaman yang muncul di tab browser -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Agar halaman responsif di perangkat seluler -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> <!-- Memuat font-awesome untuk ikon -->
+    <link rel="stylesheet" href="css/style.css" /> <!-- Menghubungkan file CSS eksternal -->
+    <script src="js/script.js"></script> <!-- Menghubungkan file JavaScript eksternal -->
+</head>
+<body>
+    <div class="container"> <!-- Kontainer utama, membagi halaman menjadi dua bagian utama -->
+        <div class="left"> <!-- Bagian kiri: form input dan informasi -->
+            <h2>Kalkulator BMI</h2> <!-- Judul utama aplikasi -->
+            <p> <!-- Paragraf deskripsi aplikasi -->
+                Berat badan ideal adalah impian semua orang. Tidak hanya memiliki bentuk tubuh yang menunjang 
+                penampilan, berat badan ideal juga mencerminkan kondisi tubuh yang sehat. Bagaimana denganmu? Yuk, 
+                hitung sekarang di kalkulator BMI.
+            </p>
+            <form id="bmi-form"> <!-- Form untuk input data BMI -->
+                <label>Jenis Kelamin</label> <!-- Label untuk pilihan jenis kelamin -->
+                <div class="radio-group"> <!-- Grup radio button untuk input jenis kelamin -->
+                    <label style="margin-right: 10px;"> 
+                        <input type="radio" style="margin-right: 5px;" name="gender" value="Pria" /> Pria <!-- Input jenis kelamin pria -->
+                    </label>
+                    <label> 
+                        <input type="radio" style="margin-right: 5px;" name="gender" value="Wanita" /> Wanita <!-- Input jenis kelamin wanita -->
+                    </label>
+                </div>
+                <label for="weight">Berat Badan (kg)</label> <!-- Label untuk berat badan -->
+                <input type="number" id="weight" placeholder="Masukkan berat badan" required /> <!-- Input berat badan -->
+                
+                <label for="age">Usia (tahun)</label> <!-- Label untuk usia -->
+                <input type="number" id="age" name="age" placeholder="Masukkan umur" /> <!-- Input usia -->
+                
+                <label for="height">Tinggi Badan (cm)</label> <!-- Label untuk tinggi badan -->
+                <input type="number" id="height" placeholder="Masukkan tinggi badan" required /> <!-- Input tinggi badan -->
+                
+                <div class="buttons"> <!-- Grup tombol aksi -->
+                    <button type="button" class="calculate" onclick="calculateBMI()">Hitung BMI</button> <!-- Tombol hitung BMI -->
+                    <button type="reset" class="reset" onclick="resetBMI()">Reset</button> <!-- Tombol reset untuk menghapus input -->
+                </div>
+            </form>
+            <div class="features"> <!-- Bagian fitur aplikasi -->
+                <h3>Keunggulan fitur</h3> <!-- Judul bagian fitur -->
+                <ul> <!-- Daftar fitur aplikasi -->
+                    <li>Menghitung berat badan</li> <!-- Fitur untuk menghitung berat badan -->
+                    <li>Menentukan kategori berat badan ideal atau tidak</li> <!-- Fitur untuk mengetahui kategori berat badan -->
+                    <li>Mempersiapkan program penurunan berat badan</li> <!-- Fitur untuk membantu rencana diet -->
+                </ul>
+                <p> <!-- Informasi tambahan -->
+                    Kalkulator ini hanya boleh digunakan oleh orang dewasa (wanita hamil atau menyusui tidak boleh 
+                    menggunakan pembacaan BMI ini) dan tidak diindikasikan yang harus diambil berdasarkan nilainya selain 
+                    berkonsultasi dengan orang yang memenuhi syarat seperti dokter.
+                </p>
+                <p> <!-- Penjelasan rumus BMI -->
+                    Kalkulator akan memberi Anda gambaran tentang perbandingan berat badan Anda dengan nilai umum. Indeks 
+                    Massa Tubuh (BMI) dihitung sebagai berat badan Anda (dalam kilogram) dibagi dengan kuadrat tinggi 
+                    badan Anda (dalam meter) atau BMI = Kg/M<sup>2</sup>.
+                </p>
+            </div>
+        </div>
+        <div class="right"> <!-- Bagian kanan: hasil dan tambahan -->
+            <div class="result"> <!-- Bagian hasil perhitungan BMI -->
+                <h2>Hasil</h2> <!-- Judul bagian hasil -->
+                <div class="bmi-value" id="bmi-value">-</div> <!-- Tempat untuk menampilkan nilai BMI -->
+                <h3 id="bmi-category">-</h3> <!-- Tempat untuk menampilkan kategori BMI -->
+                <p id="bmi-description">Masukkan data Anda untuk menghitung BMI.</p> <!-- Pesan awal sebelum menghitung -->
+                <a class="download" href="#">Download Hasil BMI</a> <!-- Tombol untuk mendownload hasil BMI -->
+                <p>Hasil BMI diantara 23 dan 25</p> <!-- Penjelasan kategori overweight -->
+                <p>
+                    Anda berada dalam kategori overweight atau berat badan berlebih. Cara terbaik untuk menurunkan berat 
+                    badan adalah dengan mengatur kalori makanan yang dikonsumsi dan berolahraga.
+                </p>
+                <p>
+                    Jika BMI Anda berada dalam kategori ini Anda dianjurkan untuk menurunkan berat badan hingga mencapai 
+                    normal.
+                </p>
+                <div class="consultation"> <!-- Tombol konsultasi ahli gizi -->
+                    <button class="app">Konsultasi Ahli Gizi Via Aplikasi</button> <!-- Konsultasi via aplikasi -->
+                    <button class="online">Registrasi Online Ahli Gizi</button> <!-- Registrasi online -->
+                </div>
+                <div class="diseases"> <!-- Penyakit terkait kelebihan berat badan -->
+                    <h3>Beberapa penyakit yang berasal dari kegemukan</h3>
+                    <ul> <!-- Daftar penyakit -->
+                        <li>Diabetes</li>
+                        <li>Hipertensi</li>
+                        <li>Sakit Jantung</li>
+                        <li>Osteoarthritis</li>
+                    </ul>
+                </div>
+                <div class="consultation-now"> <!-- Tombol konsultasi dokter -->
+                    <button class="app">Konsultasi Dokter Via Aplikasi</button> <!-- Konsultasi via aplikasi -->
+                    <button class="online">Registrasi Online Sekarang</button> <!-- Registrasi online -->
+                </div>
+            </div>
+            <div class="download-apps"> <!-- Bagian download aplikasi -->
+                <h3>Download Aplikasi</h3> <!-- Judul bagian download -->
+                <img 
+                    src="https://e7.pngegg.com/pngimages/384/968/png-clipart-google-play-app-store-android-mobile-app-android-text-logo.png" 
+                    alt="Google Play Store" width="150" height="50" /> <!-- Gambar link ke Google Play Store -->
+                <img 
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png" 
+                    alt="Apple App Store" width="150" height="50" /> <!-- Gambar link ke App Store -->
+            </div>
+        </div>
+    </div>
+    <footer>Made by Raden Fadly @2024</footer> <!-- Footer aplikasi -->
+    <br>
+</body>
+</html>
